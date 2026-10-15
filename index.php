@@ -67,7 +67,7 @@
         🌤️ Navi Mumbai: <b style="color: var(--primary);">31°C</b> &nbsp;&nbsp;|&nbsp;&nbsp; <span id="live-clock" style="font-weight: 600; color: var(--it-theme);"></span>
       </div>
       <button onclick="openMaterialModal()" class="pill-btn-outline">📦 IT Purchase Request Form</button>
-      <a href="/it=backend.php" class="pill-btn-dark">⚙️ Admin Panel</a>
+      <a href="/it_backend.php" class="pill-btn-dark">⚙️ Admin Panel</a>
     </div>
   </div>
 
@@ -86,7 +86,7 @@
     <!-- Ticket Submission Form -->
     <div class="card" style="border-top: 4px solid var(--it-theme);">
       <h3 style="color:var(--it-theme);">📝 Submit New IT Ticket / Issue</h3>
-      <form action="/it=backend.php?action=create_ticket" method="POST" enctype="multipart/form-data">
+      <form action="/it_backend.php?action=create_ticket" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="redirect" value="/it/?msg=it_submitted">
         
         <label style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; display: block;">Select Primary Category:</label>
@@ -222,7 +222,7 @@
       <button onclick="closeMaterialModal()" style="position:absolute; top:15px; right:15px; background:#ef4444; color:#fff; border:none; padding:6px 12px; border-radius:6px; cursor:pointer; font-weight:bold;">✕ Close</button>
       <h3 style="font-size: 16px; font-weight: 700; color:var(--primary); border-bottom:1px solid var(--border-color); padding-bottom:10px; margin-top:0;">📦 IT New Purchase & Material Request Form</h3>
       
-      <form action="/it=backend.php?action=create_material_request" method="POST" enctype="multipart/form-data">
+      <form action="/it_backend.php?action=create_material_request" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="redirect" value="/it/?msg=material_submitted">
         <div class="compact-form-row" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 12px;">
           <div><label style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Employee Name:</label><input type="text" name="employee_name" class="input-box" placeholder="Your Name" required></div>
@@ -321,7 +321,7 @@
     function closeMaterialModal() { document.getElementById('materialModal').style.display = 'none'; }
 
     function fetchMaterialRequests() {
-      fetch('/it=backend.php?action=get_material_requests')
+      fetch('/it_backend.php?action=get_material_requests')
         .then(res => res.json())
         .then(data => {
           let html = "";
@@ -406,7 +406,7 @@
     }
 
     function updateQueueStatus() {
-      fetch('/it=backend.php?action=get_tickets')
+      fetch('/it_backend.php?action=get_tickets')
         .then(res => res.json())
         .then(data => {
           if (data.all_tickets) {
