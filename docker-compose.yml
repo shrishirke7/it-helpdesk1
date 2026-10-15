@@ -18,7 +18,7 @@ services:
     container_name: it_helpdesk_nginx
     restart: always
     ports:
-      - "8085:80"
+      - "80:80"
     volumes:
       - .:/var/www/html
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
